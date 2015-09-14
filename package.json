@@ -1,0 +1,19 @@
+{
+  "name": "course-feature",
+  "version": "0.0.0",
+  "description": "Access Xgolf course images and stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "flickrapi": "^0.3.36",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.4",
+    "mongoose": "^4.1.6",
+    "q": "^1.4.1"
+  }
+}
