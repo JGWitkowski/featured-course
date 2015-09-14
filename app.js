@@ -1,7 +1,8 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     Flickr = require('flickrapi'),
-    Q = require('q');
+    Q = require('q'),
+    path = require('path'),
     flickrOptions = {
       api_key: "3c842398c0646952e9f7c88f1eb36945",
       secret: "ee5c137977ebdd86",
@@ -17,6 +18,8 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 var holeRouter = express.Router();
+
+var appDir = path.dirname(require.main.filename);
 
 var getPhotosWithQ = function (photo_set){
   var deferred = Q.defer();
@@ -118,8 +121,9 @@ holeRouter.route('/holes')
 
 app.use('/api', holeRouter);
 
-app.get("/", function(req, res){
- res.send('welcome to my new api');
+app.get("*", function(req, res){
+ //res.send('welcome to my new api');
+ res.sendFile(path.join(appDir, 'public/index.html'));
 });
 
 app.listen(port, function(){
